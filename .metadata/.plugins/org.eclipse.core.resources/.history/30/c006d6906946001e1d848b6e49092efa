@@ -1,0 +1,15 @@
+package com.Restful.API.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.Restful.API.Entity.Person;
+
+public class PersonService {
+	
+	private static List<Person> list = new ArrayList<Person>();
+	
+	static {
+		list.add(new Person(23, "Himanshu Kumar", "Male", 22, "New Delhi"));
+	}
+}

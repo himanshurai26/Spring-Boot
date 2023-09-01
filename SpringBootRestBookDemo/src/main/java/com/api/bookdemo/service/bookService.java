@@ -1,0 +1,70 @@
+package com.api.bookdemo.service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.stereotype.Component;
+
+import com.api.bookdemo.entities.Book;
+
+@Component
+public class bookService {
+  private static List<Book> list = new ArrayList<>();
+    
+  static {
+	  
+  
+//  list.add(new Book(1, "Java Programming Language", 234, "Himanshu"));
+//  list.add(new Book(2, "Php Programming Lanuage", 432, "Rupesh Kumar"));
+//  list.add(new Book(3, "DSA by", 345, "Shashank"));
+//  list.add(new Book(4, "Javascript programming Language", 346, "Suman"));
+  } 
+  
+  
+  public List<Book> getAllBooks(){
+	  
+	  return list;
+  }
+  
+  public Book getBookByid(int id) {
+	  for(Book book : list) {
+		  if(book.getId() == id) {
+			  return book;
+		  }
+	  }
+	  return null;
+  }
+  
+  public Book addBoo(Book book) {
+	  
+	 list.add(book);
+	 
+	 return book;
+  }
+  
+ 
+  
+ public void deleteBook(int bid) {
+	list = list.stream().filter(book -> {
+		 if(book.getId() != bid) {
+			 return true;
+		 }else {
+			 return false;
+		 }
+	 }).collect(Collectors.toList());
+ }
+ 
+ // update the book
+ 
+ public void updateBook(Book book, int bookId) {
+	 
+	list = list.stream().map(b->{
+		 if(b.getId() == bookId) {
+			 b.setBookName(book.getBookName());
+			 b.setAuthor(book.getAuthor());
+		 }
+		 return b;
+	 }).collect(Collectors.toList());
+ }
+}

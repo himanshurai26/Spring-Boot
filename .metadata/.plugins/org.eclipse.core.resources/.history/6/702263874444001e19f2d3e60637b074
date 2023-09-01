@@ -1,0 +1,27 @@
+package com.api.bookdemo.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Component;
+
+import com.api.bookdemo.entities.Book;
+
+@Component
+public class bookService {
+  private static List<Book> list = new ArrayList<>();
+    
+  static {
+	  
+  
+  list.add(new Book(1, "Java Programming Language", 234, "Himanshu"));
+  list.add(new Book(2, "Php Programming Lanuage", 432, "Rupesh Kumar"));
+  list.add(new Book(3, "DSA by", 345, "Shashank"));
+  list.add(new Book(4, "Javascript programming Language", 346, "Suman"));
+  } 
+  
+  public List<Book> getAllBook(){
+	  
+	  return list;
+  }
+}

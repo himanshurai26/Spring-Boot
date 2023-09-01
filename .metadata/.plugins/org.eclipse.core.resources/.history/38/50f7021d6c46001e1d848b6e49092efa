@@ -1,0 +1,30 @@
+package com.Restful.API.Controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.Restful.API.Entity.Person;
+import com.Restful.API.Service.PersonService;
+
+@RestController
+public class PersonController {
+
+	@Autowired
+	PersonService personservice;
+	
+	@GetMapping("/per")
+	public String personhandler() {
+		
+		return "Create By Himanshu";
+		
+	}
+	
+	@GetMapping("/person")
+	public List<Person> getAllPerson(){
+		
+		return this.personservice.getAllPerson();
+	}
+}

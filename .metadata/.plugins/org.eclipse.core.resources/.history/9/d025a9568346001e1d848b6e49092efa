@@ -1,0 +1,47 @@
+package com.Restful.API.Controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.Restful.API.Entity.Person;
+import com.Restful.API.Service.PersonService;
+
+@RestController
+public class PersonController {
+
+	@Autowired
+	PersonService personservice;
+	
+	@GetMapping("/per")
+	public String personhandler() {
+		
+		return "Create By Himanshu";
+		
+	}
+	
+	@GetMapping("/person")
+	public List<Person> getAllPerson(){
+		
+		return this.personservice.getAllPerson();
+	}
+	
+	@GetMapping("/person/{id}")
+	public Person getpersonById(@PathVariable("id") int pid) {
+		
+		return this.personservice.getPersonById(pid);
+	}
+	
+	@PostMapping("/person")
+	public Person addPerson(@RequestBody() Person person) {
+		
+		Person person1 = this.personservice.addPerson(person);
+		
+		return person1;
+	}
+}

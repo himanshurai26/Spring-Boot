@@ -1,0 +1,12 @@
+package com.api.bookdemo.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.api.bookdemo.entities.Book;
+
+public class bookService {
+  private List<Book> list = new ArrayList<>();
+  
+  
+}

@@ -1,0 +1,22 @@
+package com.api.bookdemo.controller;
+
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.api.bookdemo.entities.Book;
+import com.api.bookdemo.service.bookService;
+
+@RestController
+public class BookController {
+	
+	bookService bookservice;
+	
+	public List<Book> getBooks(){
+		
+		return this.bookservice.getAllBooks();
+		
+	}
+
+}
