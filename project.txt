@@ -1,5 +1,1 @@
 WOrking on a new project
-, day 4
--> spring validation
--> inject validation dependency
--> 
